@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements ItemClickListener {
 
     RecyclerView mRecyclerView;
+    SectionedExpandableLayoutHelper sectionedExpandableLayoutHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
         //setting the recycler view
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        SectionedExpandableLayoutHelper sectionedExpandableLayoutHelper = new SectionedExpandableLayoutHelper(this,
-                mRecyclerView, this, 3);
+        sectionedExpandableLayoutHelper = new SectionedExpandableLayoutHelper(this,
+                mRecyclerView, this, 4);
 
         //random data
         ArrayList<Item> arrayList = new ArrayList<>();
@@ -84,6 +85,12 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     @Override
     public void itemClicked(Item item) {
         Toast.makeText(this, "Item: " + item.getName() + " clicked", Toast.LENGTH_SHORT).show();
+
+
+        //checking if adding single item works
+        sectionedExpandableLayoutHelper.addItem("Ice cream", new Item("123",6));
+        sectionedExpandableLayoutHelper.notifyDataSetChanged();
+
     }
 
     @Override
