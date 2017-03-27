@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection = new SubSection();
         subSection.setSubSectionHeader(new SubSectionHeader("Poi1"));
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item("iPhone", 0));
-        itemList.add(new Item("iPad", 1));
-        itemList.add(new Item("iPod", 2));
-        itemList.add(new Item("iMac", 3));
+        itemList.add(new Item("iPhone", "0", false));
+        itemList.add(new Item("iPad", "1", false));
+        itemList.add(new Item("iPod", "2", false));
+        itemList.add(new Item("iMac", "3", false));
         subSection.setItemList(itemList);
         subSectionList1.add(subSection);
 
@@ -51,11 +51,11 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection2 = new SubSection();
         subSection2.setSubSectionHeader(new SubSectionHeader("Poi2"));
         List<Item> itemList2 = new ArrayList<>();
-        itemList2.add(new Item("iPhone", 0));
-        itemList2.add(new Item("iPad", 1));
-        itemList2.add(new Item("iPod", 2));
-        itemList2.add(new Item("iMac", 3));
-        itemList2.add(new Item("iMac", 4));
+        itemList2.add(new Item("iPhone", "7", false));
+        itemList2.add(new Item("iPad", "8", false));
+        itemList2.add(new Item("iPod", "9", false));
+        itemList2.add(new Item("iMac", "10", false));
+        itemList2.add(new Item("iMac", "11", false));
         subSection2.setItemList(itemList2);
         subSectionList1.add(subSection2);
 
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection3 = new SubSection();
         subSection3.setSubSectionHeader(new SubSectionHeader("Poi3"));
         List<Item> itemList3 = new ArrayList<>();
-        itemList3.add(new Item("iPhone", 0));
-        itemList3.add(new Item("iPad", 1));
-        itemList3.add(new Item("iPod", 2));
-        itemList3.add(new Item("iMac", 3));
+        itemList3.add(new Item("iPhone", "12", false));
+        itemList3.add(new Item("iPad", "13", false));
+        itemList3.add(new Item("iPod", "14", false));
+        itemList3.add(new Item("iMac", "15", false));
         subSection3.setItemList(itemList3);
         subSectionList1.add(subSection3);
 
@@ -80,19 +80,19 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection4 = new SubSection();
         subSection4.setSubSectionHeader(new SubSectionHeader("Poi4"));
         List<Item> itemList4 = new ArrayList<>();
-        itemList4.add(new Item("iPhone", 0));
-        itemList4.add(new Item("iPad", 1));
-        itemList4.add(new Item("iPad1", 2));
-        itemList4.add(new Item("iPad2", 3));
-        itemList4.add(new Item("iPad3", 4));
-        itemList4.add(new Item("iPad4", 5));
-        itemList4.add(new Item("iPad5", 6));
-        itemList4.add(new Item("iPad6", 7));
-        itemList4.add(new Item("iPad7", 8));
-        itemList4.add(new Item("iPad8", 9));
-        itemList4.add(new Item("iPad9", 10));
-        itemList4.add(new Item("iPad10", 11));
-        itemList4.add(new Item("iPad11", 12));
+        itemList4.add(new Item("iPhone", "16", false));
+        itemList4.add(new Item("iPad", "17", false));
+        itemList4.add(new Item("iPad1", "18", false));
+        itemList4.add(new Item("iPad2", "19", false));
+        itemList4.add(new Item("iPad3", "20", false));
+        itemList4.add(new Item("iPad4", "21", false));
+        itemList4.add(new Item("iPad5", "22", false));
+        itemList4.add(new Item("iPad6", "23", false));
+        itemList4.add(new Item("iPad7", "24", false));
+        itemList4.add(new Item("iPad8", "25", false));
+        itemList4.add(new Item("iPad9", "26", false));
+        itemList4.add(new Item("iPad10", "27", false));
+        itemList4.add(new Item("iPad11", "28", false));
         subSection4.setItemList(itemList4);
         subSectionList2.add(subSection4);
 
@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection5 = new SubSection();
         subSection5.setSubSectionHeader(new SubSectionHeader("Poi5"));
         List<Item> itemList5 = new ArrayList<>();
-        itemList5.add(new Item("iPod", 2));
-        itemList5.add(new Item("iMac", 3));
+        itemList5.add(new Item("iPod", "29", false));
+        itemList5.add(new Item("iMac", "30", false));
         subSection5.setItemList(itemList5);
         subSectionList2.add(subSection5);
 
@@ -109,13 +109,13 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         SubSection subSection6 = new SubSection();
         subSection6.setSubSectionHeader(new SubSectionHeader("Poi6"));
         List<Item> itemList6 = new ArrayList<>();
-        itemList6.add(new Item("iPhone", 0));
-        itemList6.add(new Item("iPad", 1));
-        itemList6.add(new Item("iPod", 2));
-        itemList6.add(new Item("iMac1", 3));
-        itemList6.add(new Item("iMac2", 4));
-        itemList6.add(new Item("iMac3", 5));
-        itemList6.add(new Item("iMac4", 6));
+        itemList6.add(new Item("iPhone", "31", false));
+        itemList6.add(new Item("iPad", "32", false));
+        itemList6.add(new Item("iPod", "33", false));
+        itemList6.add(new Item("iMac1", "34", false));
+        itemList6.add(new Item("iMac2", "35", false));
+        itemList6.add(new Item("iMac3", "36", false));
+        itemList6.add(new Item("iMac4", "37", false));
         subSection6.setItemList(itemList6);
         subSectionList2.add(subSection6);
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         Toast.makeText(this, "Item: " + item.getName() + " clicked", Toast.LENGTH_SHORT).show();
 
 //        //checking if adding single item works
-//        sectionedExpandableLayoutHelper.addItem("Apple Products", "Poi2", new Item("555555",5));
+//        sectionedExpandableLayoutHelper.addItem("Apple Products", "Poi2", new Item("555555", "38", true));
 //        sectionedExpandableLayoutHelper.notifyDataSetChanged();
 
     }

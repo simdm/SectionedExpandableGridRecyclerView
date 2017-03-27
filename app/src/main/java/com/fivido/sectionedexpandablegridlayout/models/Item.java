@@ -6,14 +6,24 @@ package com.fivido.sectionedexpandablegridlayout.models;
 public class Item {
 
     private final String name;
-    private final int id;
+    private final String id;
+    private boolean checked;
 
-    public Item(String name, int id) {
+    public Item(String name, String id, boolean checked) {
         this.name = name;
         this.id = id;
+        this.checked = checked;
     }
 
-    public int getId() {
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    public String getId() {
         return id;
     }
 

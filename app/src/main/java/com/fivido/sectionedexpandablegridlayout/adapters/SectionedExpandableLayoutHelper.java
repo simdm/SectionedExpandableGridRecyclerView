@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.fivido.sectionedexpandablegridlayout.models.Item;
 import com.fivido.sectionedexpandablegridlayout.models.SubSection;
 import com.fivido.sectionedexpandablegridlayout.models.Section;
+import com.fivido.sectionedexpandablegridlayout.models.SubSectionHeader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,6 +83,7 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 //    }
 
     private void generateDataList () {
+
         mDataArrayList.clear();
         for (Map.Entry<Section, ArrayList<SubSection>> entry : mSectionDataMap.entrySet()) {
             Section key;

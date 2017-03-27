@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -67,21 +68,32 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         return mDataArrayList.get(position) instanceof SubSectionHeader;
     }
 
+    private void setCheckImageView(ViewHolder holder, Item item) {
+        if (item.isChecked()) {
+            holder.checkImageView.setImageResource(R.drawable.ic_keyboard_arrow_down_black_18dp);
+        } else {
+            holder.checkImageView.setImageResource(R.drawable.ic_keyboard_arrow_up_black_18dp);
+        }
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(mContext).inflate(viewType, parent, false), viewType);
     }
 
-
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         switch (holder.viewType) {
             case VIEW_TYPE_ITEM :
                 final Item item = (Item) mDataArrayList.get(position);
-                holder.itemTextView.setText(item.getName());
+                holder.itemImageView.setImageResource(R.drawable.default_icon);
+                setCheckImageView(holder, item);
+
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        item.setChecked(!item.isChecked());
+                        setCheckImageView(holder, item);
                         mItemClickListener.itemClicked(item);
                     }
                 });
@@ -137,7 +149,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         ToggleButton sectionToggleButton;
 
         //for item
-        TextView itemTextView;
+        ImageView itemImageView;
+        ImageView checkImageView;
 
         //for Poi section
         TextView poiSectionTextView;
@@ -147,7 +160,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
             this.viewType = viewType;
             this.view = view;
             if (viewType == VIEW_TYPE_ITEM) {
-                itemTextView = (TextView) view.findViewById(R.id.text_item);
+                itemImageView = (ImageView) view.findViewById(R.id.image_item);
+                checkImageView = (ImageView) view.findViewById(R.id.image_check);
             } else if (viewType == VIEW_TYPE_POI_SECTION) {
                 poiSectionTextView = (TextView) view.findViewById(R.id.sub_section_name);
             } else {
