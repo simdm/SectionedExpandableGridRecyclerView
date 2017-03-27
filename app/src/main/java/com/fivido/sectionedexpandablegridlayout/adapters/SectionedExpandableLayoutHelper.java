@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.fivido.sectionedexpandablegridlayout.models.Item;
+import com.fivido.sectionedexpandablegridlayout.models.PoiSection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.Map;
 public class SectionedExpandableLayoutHelper implements SectionStateChangeListener {
 
     //data list
-    private LinkedHashMap<Section, ArrayList<Item>> mSectionDataMap = new LinkedHashMap<Section, ArrayList<Item>>();
+    private LinkedHashMap<Section, ArrayList<PoiSection>> mSectionDataMap = new LinkedHashMap<Section, ArrayList<PoiSection>>();
     private ArrayList<Object> mDataArrayList = new ArrayList<Object>();
 
     //section map
@@ -49,32 +50,43 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
         mSectionedExpandableGridAdapter.notifyDataSetChanged();
     }
 
-    public void addSection(String section, ArrayList<Item> items) {
+    public void addSection(String section, ArrayList<PoiSection> poiSectionList) {
         Section newSection;
         mSectionMap.put(section, (newSection = new Section(section)));
-        mSectionDataMap.put(newSection, items);
+        mSectionDataMap.put(newSection, poiSectionList);
     }
 
-    public void addItem(String section, Item item) {
-        mSectionDataMap.get(mSectionMap.get(section)).add(item);
-    }
-
-    public void removeItem(String section, Item item) {
-        mSectionDataMap.get(mSectionMap.get(section)).remove(item);
-    }
-
-    public void removeSection(String section) {
-        mSectionDataMap.remove(mSectionMap.get(section));
-        mSectionMap.remove(section);
-    }
+//    public void addSection(String section, ArrayList<Item> items) {
+//        Section newSection;
+//        mSectionMap.put(section, (newSection = new Section(section)));
+//        mSectionDataMap.put(newSection, items);
+//    }
+//
+//    public void addItem(String section, Item item) {
+//        mSectionDataMap.get(mSectionMap.get(section)).add(item);
+//    }
+//
+//    public void removeItem(String section, Item item) {
+//        mSectionDataMap.get(mSectionMap.get(section)).remove(item);
+//    }
+//
+//    public void removeSection(String section) {
+//        mSectionDataMap.remove(mSectionMap.get(section));
+//        mSectionMap.remove(section);
+//    }
 
     private void generateDataList () {
         mDataArrayList.clear();
-        for (Map.Entry<Section, ArrayList<Item>> entry : mSectionDataMap.entrySet()) {
+        for (Map.Entry<Section, ArrayList<PoiSection>> entry : mSectionDataMap.entrySet()) {
             Section key;
             mDataArrayList.add((key = entry.getKey()));
-            if (key.isExpanded)
-                mDataArrayList.addAll(entry.getValue());
+            if (key.isExpanded) {
+                ArrayList<PoiSection> poiSectionList = entry.getValue();
+                for (PoiSection poiSection:poiSectionList) {
+                    mDataArrayList.add(poiSection.getPoiSectionHeader());
+                    mDataArrayList.addAll(poiSection.getItemList());
+                }
+            }
         }
     }
 
