@@ -12,8 +12,8 @@ import android.widget.ToggleButton;
 
 import com.fivido.sectionedexpandablegridlayout.R;
 import com.fivido.sectionedexpandablegridlayout.models.Item;
-import com.fivido.sectionedexpandablegridlayout.models.PoiSection;
-import com.fivido.sectionedexpandablegridlayout.models.PoiSectionHeader;
+import com.fivido.sectionedexpandablegridlayout.models.Section;
+import com.fivido.sectionedexpandablegridlayout.models.SubSectionHeader;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
 
     //view type
     private static final int VIEW_TYPE_SECTION = R.layout.layout_section;
-    private static final int VIEW_TYPE_POI_SECTION = R.layout.layout_poi_section;
+    private static final int VIEW_TYPE_POI_SECTION = R.layout.layout_sub_section;
     private static final int VIEW_TYPE_ITEM = R.layout.layout_item; //TODO : change this
 
     public SectionedExpandableGridAdapter(Context context, ArrayList<Object> dataArrayList,
@@ -64,7 +64,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         return mDataArrayList.get(position) instanceof Section;
     }
     private boolean isPoiSectionHeader(int position) {
-        return mDataArrayList.get(position) instanceof PoiSectionHeader;
+        return mDataArrayList.get(position) instanceof SubSectionHeader;
     }
 
     @Override
@@ -87,8 +87,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                 });
                 break;
             case VIEW_TYPE_POI_SECTION :
-                final PoiSectionHeader poiSectionHeader = (PoiSectionHeader) mDataArrayList.get(position);
-                holder.poiSectionTextView.setText(poiSectionHeader.getName());
+                final SubSectionHeader subSectionHeader = (SubSectionHeader) mDataArrayList.get(position);
+                holder.poiSectionTextView.setText(subSectionHeader.getName());
                 break;
             case VIEW_TYPE_SECTION :
                 final Section section = (Section) mDataArrayList.get(position);
@@ -149,7 +149,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
             if (viewType == VIEW_TYPE_ITEM) {
                 itemTextView = (TextView) view.findViewById(R.id.text_item);
             } else if (viewType == VIEW_TYPE_POI_SECTION) {
-                poiSectionTextView = (TextView) view.findViewById(R.id.poi_section_name);
+                poiSectionTextView = (TextView) view.findViewById(R.id.sub_section_name);
             } else {
                 sectionTextView = (TextView) view.findViewById(R.id.text_section);
                 sectionToggleButton = (ToggleButton) view.findViewById(R.id.toggle_button_section);

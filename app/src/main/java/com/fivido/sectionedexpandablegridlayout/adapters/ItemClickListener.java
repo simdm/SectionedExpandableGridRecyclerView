@@ -1,6 +1,7 @@
 package com.fivido.sectionedexpandablegridlayout.adapters;
 
 import com.fivido.sectionedexpandablegridlayout.models.Item;
+import com.fivido.sectionedexpandablegridlayout.models.Section;
 
 /**
  * Created by lenovo on 2/23/2016.

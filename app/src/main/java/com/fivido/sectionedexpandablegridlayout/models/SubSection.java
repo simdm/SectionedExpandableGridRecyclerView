@@ -7,17 +7,17 @@ import java.util.List;
  * Created by demeng on 3/24/17.
  */
 
-public class PoiSection {
+public class SubSection {
 
-    private PoiSectionHeader poiSectionHeader;
+    private SubSectionHeader subSectionHeader;
     private List<Item> itemList = new ArrayList<Item>();
 
-    public PoiSectionHeader getPoiSectionHeader() {
-        return poiSectionHeader;
+    public SubSectionHeader getSubSectionHeader() {
+        return subSectionHeader;
     }
 
-    public void setPoiSectionHeader(PoiSectionHeader poiSectionHeader) {
-        this.poiSectionHeader = poiSectionHeader;
+    public void setSubSectionHeader(SubSectionHeader subSectionHeader) {
+        this.subSectionHeader = subSectionHeader;
     }
 
     public List<Item> getItemList() {

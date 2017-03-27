@@ -8,11 +8,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.fivido.sectionedexpandablegridlayout.adapters.ItemClickListener;
-import com.fivido.sectionedexpandablegridlayout.adapters.Section;
+import com.fivido.sectionedexpandablegridlayout.models.Section;
 import com.fivido.sectionedexpandablegridlayout.adapters.SectionedExpandableLayoutHelper;
 import com.fivido.sectionedexpandablegridlayout.models.Item;
-import com.fivido.sectionedexpandablegridlayout.models.PoiSection;
-import com.fivido.sectionedexpandablegridlayout.models.PoiSectionHeader;
+import com.fivido.sectionedexpandablegridlayout.models.SubSection;
+import com.fivido.sectionedexpandablegridlayout.models.SubSectionHeader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,51 +34,51 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
                 mRecyclerView, this, 4);
 
         //random data1
-        ArrayList<PoiSection> poiSectionList1 = new ArrayList<PoiSection>();
+        ArrayList<SubSection> subSectionList1 = new ArrayList<SubSection>();
 
         //Poi1
-        PoiSection poiSection = new PoiSection();
-        poiSection.setPoiSectionHeader(new PoiSectionHeader("Poi1"));
+        SubSection subSection = new SubSection();
+        subSection.setSubSectionHeader(new SubSectionHeader("Poi1"));
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("iPhone", 0));
         itemList.add(new Item("iPad", 1));
         itemList.add(new Item("iPod", 2));
         itemList.add(new Item("iMac", 3));
-        poiSection.setItemList(itemList);
-        poiSectionList1.add(poiSection);
+        subSection.setItemList(itemList);
+        subSectionList1.add(subSection);
 
         //Poi2
-        PoiSection poiSection2 = new PoiSection();
-        poiSection2.setPoiSectionHeader(new PoiSectionHeader("Poi2"));
+        SubSection subSection2 = new SubSection();
+        subSection2.setSubSectionHeader(new SubSectionHeader("Poi2"));
         List<Item> itemList2 = new ArrayList<>();
         itemList2.add(new Item("iPhone", 0));
         itemList2.add(new Item("iPad", 1));
         itemList2.add(new Item("iPod", 2));
         itemList2.add(new Item("iMac", 3));
         itemList2.add(new Item("iMac", 4));
-        poiSection2.setItemList(itemList2);
-        poiSectionList1.add(poiSection2);
+        subSection2.setItemList(itemList2);
+        subSectionList1.add(subSection2);
 
         //Poi3
-        PoiSection poiSection3 = new PoiSection();
-        poiSection3.setPoiSectionHeader(new PoiSectionHeader("Poi3"));
+        SubSection subSection3 = new SubSection();
+        subSection3.setSubSectionHeader(new SubSectionHeader("Poi3"));
         List<Item> itemList3 = new ArrayList<>();
         itemList3.add(new Item("iPhone", 0));
         itemList3.add(new Item("iPad", 1));
         itemList3.add(new Item("iPod", 2));
         itemList3.add(new Item("iMac", 3));
-        poiSection3.setItemList(itemList3);
-        poiSectionList1.add(poiSection3);
+        subSection3.setItemList(itemList3);
+        subSectionList1.add(subSection3);
 
-        sectionedExpandableLayoutHelper.addSection("Apple Products", poiSectionList1);
+        sectionedExpandableLayoutHelper.addSection("Apple Products", subSectionList1);
 
 
         //random data2
-        ArrayList<PoiSection> poiSectionList2 = new ArrayList<PoiSection>();
+        ArrayList<SubSection> subSectionList2 = new ArrayList<SubSection>();
 
         //Poi4
-        PoiSection poiSection4 = new PoiSection();
-        poiSection4.setPoiSectionHeader(new PoiSectionHeader("Poi4"));
+        SubSection subSection4 = new SubSection();
+        subSection4.setSubSectionHeader(new SubSectionHeader("Poi4"));
         List<Item> itemList4 = new ArrayList<>();
         itemList4.add(new Item("iPhone", 0));
         itemList4.add(new Item("iPad", 1));
@@ -93,21 +93,21 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         itemList4.add(new Item("iPad9", 10));
         itemList4.add(new Item("iPad10", 11));
         itemList4.add(new Item("iPad11", 12));
-        poiSection4.setItemList(itemList4);
-        poiSectionList2.add(poiSection4);
+        subSection4.setItemList(itemList4);
+        subSectionList2.add(subSection4);
 
         //Poi5
-        PoiSection poiSection5 = new PoiSection();
-        poiSection5.setPoiSectionHeader(new PoiSectionHeader("Poi5"));
+        SubSection subSection5 = new SubSection();
+        subSection5.setSubSectionHeader(new SubSectionHeader("Poi5"));
         List<Item> itemList5 = new ArrayList<>();
         itemList5.add(new Item("iPod", 2));
         itemList5.add(new Item("iMac", 3));
-        poiSection5.setItemList(itemList5);
-        poiSectionList2.add(poiSection5);
+        subSection5.setItemList(itemList5);
+        subSectionList2.add(subSection5);
 
         //Poi6
-        PoiSection poiSection6 = new PoiSection();
-        poiSection6.setPoiSectionHeader(new PoiSectionHeader("Poi6"));
+        SubSection subSection6 = new SubSection();
+        subSection6.setSubSectionHeader(new SubSectionHeader("Poi6"));
         List<Item> itemList6 = new ArrayList<>();
         itemList6.add(new Item("iPhone", 0));
         itemList6.add(new Item("iPad", 1));
@@ -116,10 +116,10 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         itemList6.add(new Item("iMac2", 4));
         itemList6.add(new Item("iMac3", 5));
         itemList6.add(new Item("iMac4", 6));
-        poiSection6.setItemList(itemList6);
-        poiSectionList2.add(poiSection6);
+        subSection6.setItemList(itemList6);
+        subSectionList2.add(subSection6);
 
-        sectionedExpandableLayoutHelper.addSection("dm Products", poiSectionList2);
+        sectionedExpandableLayoutHelper.addSection("dm Products", subSectionList2);
 
 
         sectionedExpandableLayoutHelper.notifyDataSetChanged();

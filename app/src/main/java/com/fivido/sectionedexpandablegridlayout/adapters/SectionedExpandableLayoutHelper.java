@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.fivido.sectionedexpandablegridlayout.models.Item;
-import com.fivido.sectionedexpandablegridlayout.models.PoiSection;
+import com.fivido.sectionedexpandablegridlayout.models.SubSection;
+import com.fivido.sectionedexpandablegridlayout.models.Section;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import java.util.Map;
 public class SectionedExpandableLayoutHelper implements SectionStateChangeListener {
 
     //data list
-    private LinkedHashMap<Section, ArrayList<PoiSection>> mSectionDataMap = new LinkedHashMap<Section, ArrayList<PoiSection>>();
+    private LinkedHashMap<Section, ArrayList<SubSection>> mSectionDataMap = new LinkedHashMap<Section, ArrayList<SubSection>>();
     private ArrayList<Object> mDataArrayList = new ArrayList<Object>();
 
     //section map
@@ -50,10 +50,10 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
         mSectionedExpandableGridAdapter.notifyDataSetChanged();
     }
 
-    public void addSection(String section, ArrayList<PoiSection> poiSectionList) {
+    public void addSection(String section, ArrayList<SubSection> subSectionList) {
         Section newSection;
         mSectionMap.put(section, (newSection = new Section(section)));
-        mSectionDataMap.put(newSection, poiSectionList);
+        mSectionDataMap.put(newSection, subSectionList);
     }
 
 //    public void addSection(String section, ArrayList<Item> items) {
@@ -77,14 +77,14 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 
     private void generateDataList () {
         mDataArrayList.clear();
-        for (Map.Entry<Section, ArrayList<PoiSection>> entry : mSectionDataMap.entrySet()) {
+        for (Map.Entry<Section, ArrayList<SubSection>> entry : mSectionDataMap.entrySet()) {
             Section key;
             mDataArrayList.add((key = entry.getKey()));
             if (key.isExpanded) {
-                ArrayList<PoiSection> poiSectionList = entry.getValue();
-                for (PoiSection poiSection:poiSectionList) {
-                    mDataArrayList.add(poiSection.getPoiSectionHeader());
-                    mDataArrayList.addAll(poiSection.getItemList());
+                ArrayList<SubSection> subSectionList = entry.getValue();
+                for (SubSection subSection : subSectionList) {
+                    mDataArrayList.add(subSection.getSubSectionHeader());
+                    mDataArrayList.addAll(subSection.getItemList());
                 }
             }
         }

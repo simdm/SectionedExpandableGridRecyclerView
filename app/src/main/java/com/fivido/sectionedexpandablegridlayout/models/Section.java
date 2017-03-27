@@ -1,4 +1,4 @@
-package com.fivido.sectionedexpandablegridlayout.adapters;
+package com.fivido.sectionedexpandablegridlayout.models;
 
 /**
  * Created by bpncool on 2/23/2016.

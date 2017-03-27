@@ -4,10 +4,10 @@ package com.fivido.sectionedexpandablegridlayout.models;
  * Created by demeng on 3/27/17.
  */
 
-public class PoiSectionHeader {
+public class SubSectionHeader {
     private String name;
 
-    public PoiSectionHeader(String name) {
+    public SubSectionHeader(String name) {
         this.name = name;
     }
 
