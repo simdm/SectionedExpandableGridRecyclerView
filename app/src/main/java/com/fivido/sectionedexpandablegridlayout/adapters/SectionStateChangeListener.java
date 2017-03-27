@@ -1,7 +1,7 @@
 package com.fivido.sectionedexpandablegridlayout.adapters;
 
 /**
- * Created by bpncool on 2/24/2016.
+ * Created by demeng on 3/27/17.
  */
 
 import com.fivido.sectionedexpandablegridlayout.models.Section;

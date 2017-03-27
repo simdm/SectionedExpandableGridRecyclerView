@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.fivido.sectionedexpandablegridlayout.models.Item;
 import com.fivido.sectionedexpandablegridlayout.models.SubSection;
 import com.fivido.sectionedexpandablegridlayout.models.Section;
 
@@ -13,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Created by bpncool on 2/23/2016.
+ * Created by demeng on 3/27/17.
  */
 public class SectionedExpandableLayoutHelper implements SectionStateChangeListener {
 
@@ -56,15 +57,20 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
         mSectionDataMap.put(newSection, subSectionList);
     }
 
-//    public void addSection(String section, ArrayList<Item> items) {
-//        Section newSection;
-//        mSectionMap.put(section, (newSection = new Section(section)));
-//        mSectionDataMap.put(newSection, items);
-//    }
-//
-//    public void addItem(String section, Item item) {
-//        mSectionDataMap.get(mSectionMap.get(section)).add(item);
-//    }
+    public void addItem(String section, String subSectionheader, Item item) {
+        ArrayList<SubSection> subSectionList = mSectionDataMap.get(mSectionMap.get(section));
+
+        if (subSectionList == null) {
+            return;
+        }
+
+        for (SubSection subSection:subSectionList) {
+            if (subSection.getSubSectionHeader().getName().equalsIgnoreCase(subSectionheader)) {
+                subSection.getItemList().add(item);
+            }
+        }
+    }
+
 //
 //    public void removeItem(String section, Item item) {
 //        mSectionDataMap.get(mSectionMap.get(section)).remove(item);

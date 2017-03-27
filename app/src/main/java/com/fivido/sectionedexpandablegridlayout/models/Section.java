@@ -1,7 +1,7 @@
 package com.fivido.sectionedexpandablegridlayout.models;
 
 /**
- * Created by bpncool on 2/23/2016.
+ * Created by demeng on 3/27/17.
  */
 public class Section {
 

@@ -124,31 +124,8 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
         sectionedExpandableLayoutHelper.notifyDataSetChanged();
 
-//        //21
-//        ArrayList<Item> itemList21 = new ArrayList<>();
-//        itemList21 = new ArrayList<>();
-//        itemList21.add(new Item("LG", 0));
-//        itemList21.add(new Item("Apple", 1));
-//        itemList21.add(new Item("Samsung", 2));
-//        itemList21.add(new Item("Motorola", 3));
-//        itemList21.add(new Item("Sony", 4));
-//        itemList21.add(new Item("Nokia", 5));
-//        sectionedExpandableLayoutHelper.addSection("Companies", itemList21);
-//
-//        //31
-//        ArrayList<Item> itemList31 = new ArrayList<>();
-//        itemList31 = new ArrayList<>();
-//        itemList31.add(new Item("Chocolate", 0));
-//        itemList31.add(new Item("Strawberry", 1));
-//        itemList31.add(new Item("Vanilla", 2));
-//        itemList31.add(new Item("Butterscotch", 3));
-//        itemList31.add(new Item("Grape", 4));
-//        sectionedExpandableLayoutHelper.addSection("Ice cream", itemList31);
-
-
-
 //        //checking if adding single item works
-//        sectionedExpandableLayoutHelper.addItem("Ice cream", new Item("Tutti frutti",5));
+//        sectionedExpandableLayoutHelper.addItem("Ice cream", "Poi2", new Item("555555",5));
 //        sectionedExpandableLayoutHelper.notifyDataSetChanged();
     }
 
@@ -177,6 +154,10 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     @Override
     public void itemClicked(Item item) {
         Toast.makeText(this, "Item: " + item.getName() + " clicked", Toast.LENGTH_SHORT).show();
+
+//        //checking if adding single item works
+//        sectionedExpandableLayoutHelper.addItem("Apple Products", "Poi2", new Item("555555",5));
+//        sectionedExpandableLayoutHelper.notifyDataSetChanged();
 
     }
 

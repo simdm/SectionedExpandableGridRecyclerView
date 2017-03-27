@@ -18,7 +18,7 @@ import com.fivido.sectionedexpandablegridlayout.models.SubSectionHeader;
 import java.util.ArrayList;
 
 /**
- * Created by lenovo on 2/23/2016.
+ * Created by demeng on 3/27/17.
  */
 public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<SectionedExpandableGridAdapter.ViewHolder> {
 
