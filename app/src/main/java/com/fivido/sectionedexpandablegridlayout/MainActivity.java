@@ -3,11 +3,15 @@ package com.fivido.sectionedexpandablegridlayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.fivido.sectionedexpandablegridlayout.adapters.ItemClickListener;
+import com.fivido.sectionedexpandablegridlayout.album.AlbumHelper;
+import com.fivido.sectionedexpandablegridlayout.album.ImageFolder;
+import com.fivido.sectionedexpandablegridlayout.album.LoadLocalPhoto;
 import com.fivido.sectionedexpandablegridlayout.models.Section;
 import com.fivido.sectionedexpandablegridlayout.adapters.SectionedExpandableLayoutHelper;
 import com.fivido.sectionedexpandablegridlayout.models.Item;
@@ -32,6 +36,24 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         sectionedExpandableLayoutHelper = new SectionedExpandableLayoutHelper(this,
                 mRecyclerView, this, 4);
+
+        new LoadLocalPhoto(this).setLoadFinishCallback(new LoadLocalPhoto.LoadFinishCallback() {
+            @Override
+            public void finish(List<ImageFolder> folderList) {
+
+                for (ImageFolder imageFolder : folderList) {
+                    Log.e("aaa", "name:" + imageFolder.name);
+                    Log.e("aaa", "path:" + imageFolder.path);
+                    for (String image : imageFolder.images) {
+                        Log.e("aaa", "image:" + image);
+
+                        AlbumHelper.getPhotoLocation(image);
+                    }
+                }
+
+            }
+        });
+
 
         //random data1
         ArrayList<SubSection> subSectionList1 = new ArrayList<SubSection>();
