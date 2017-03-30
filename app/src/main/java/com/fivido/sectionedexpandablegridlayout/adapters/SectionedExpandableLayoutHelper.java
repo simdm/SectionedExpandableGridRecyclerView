@@ -34,12 +34,13 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 
     //recycler view
     RecyclerView mRecyclerView;
+    GridLayoutManager gridLayoutManager;
 
     public SectionedExpandableLayoutHelper(Context context, RecyclerView recyclerView, ItemClickListener itemClickListener,
                                            int gridSpanCount) {
 
         //setting the recycler view
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, gridSpanCount);
+        gridLayoutManager = new GridLayoutManager(context, gridSpanCount);
         recyclerView.setLayoutManager(gridLayoutManager);
         mSectionedExpandableGridAdapter = new SectionedExpandableGridAdapter(context, mDataArrayList,
                 gridLayoutManager, itemClickListener, this);
@@ -115,7 +116,26 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 
             notifyDataSetChanged();
 
-//            mRecyclerView.scrollToPosition(0);
+//            mRecyclerView.scrollToPosition(30);
+
+            int n = 0;
+            for (Map.Entry<Section, ArrayList<SubSection>> entry : mSectionDataMap.entrySet()) {
+                Section key = entry.getKey();
+                if (key == section) {
+                    mRecyclerView.scrollToPosition(n);
+                    break;
+                }
+                n++;
+                if (key.isExpanded) {
+                    ArrayList<SubSection> subSectionList = entry.getValue();
+                    for (SubSection subSection : subSectionList) {
+                        n++;
+                        n += subSection.getItemList().size();
+                    }
+                }
+            }
+
+            gridLayoutManager.scrollToPositionWithOffset(n, 0);
         }
     }
 }
