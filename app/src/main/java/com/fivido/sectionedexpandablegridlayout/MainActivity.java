@@ -41,15 +41,32 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
             @Override
             public void finish(List<ImageFolder> folderList) {
 
-                for (ImageFolder imageFolder : folderList) {
-                    Log.e("aaa", "name:" + imageFolder.name);
-                    Log.e("aaa", "path:" + imageFolder.path);
-                    for (String image : imageFolder.images) {
-                        Log.e("aaa", "image:" + image);
-
-                        AlbumHelper.getPhotoLocation(image);
-                    }
-                }
+//                ArrayList<SubSection> subSectionList1 = new ArrayList<SubSection>();
+//
+//                //Poi1
+//                SubSection subSection = new SubSection();
+//                subSection.setSubSectionHeader(new SubSectionHeader("Poi1"));
+//                List<Item> itemList = new ArrayList<>();
+//
+//                for (ImageFolder imageFolder : folderList) {
+//                    Log.e("aaa", "name:" + imageFolder.name);
+//                    Log.e("aaa", "path:" + imageFolder.path);
+//                    for (String image : imageFolder.images) {
+//                        Log.e("aaa", "image:" + image);
+//
+//                        itemList.add(new Item(image, "0", false));
+//
+//                        AlbumHelper.getPhotoLocation(image);
+//
+//                    }
+//                }
+//
+//                subSection.setItemList(itemList);
+//                subSectionList1.add(subSection);
+//
+//                sectionedExpandableLayoutHelper.addSection("Apple Products", subSectionList1);
+//
+//                sectionedExpandableLayoutHelper.notifyDataSetChanged();
 
             }
         });

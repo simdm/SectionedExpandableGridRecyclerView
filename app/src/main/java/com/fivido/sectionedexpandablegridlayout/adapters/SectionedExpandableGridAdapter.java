@@ -15,7 +15,9 @@ import com.fivido.sectionedexpandablegridlayout.R;
 import com.fivido.sectionedexpandablegridlayout.models.Item;
 import com.fivido.sectionedexpandablegridlayout.models.Section;
 import com.fivido.sectionedexpandablegridlayout.models.SubSectionHeader;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -86,7 +88,21 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         switch (holder.viewType) {
             case VIEW_TYPE_ITEM :
                 final Item item = (Item) mDataArrayList.get(position);
-                holder.itemImageView.setImageResource(R.drawable.default_icon);
+
+                File imageFile = new File(item.getName());
+                if (imageFile.exists()) {
+                    Picasso.with(mContext)
+                            .load(imageFile)
+                            .placeholder(R.drawable.default_icon)
+                            .resize(100, 100)
+                            .centerCrop()
+                            .into(holder.itemImageView);
+                }
+                else {
+                    holder.itemImageView.setImageResource(R.drawable.default_icon);
+                }
+
+
                 setCheckImageView(holder, item);
 
                 holder.view.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +127,9 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                         mItemClickListener.itemClicked(section);
                     }
                 });
+
                 holder.sectionToggleButton.setChecked(section.isExpanded);
+
                 holder.sectionToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

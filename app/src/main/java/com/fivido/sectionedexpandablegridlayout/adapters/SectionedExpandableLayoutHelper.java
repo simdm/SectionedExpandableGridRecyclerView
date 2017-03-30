@@ -30,6 +30,8 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     //adapter
     private SectionedExpandableGridAdapter mSectionedExpandableGridAdapter;
 
+    private Section sectionSelect;
+
     //recycler view
     RecyclerView mRecyclerView;
 
@@ -85,9 +87,15 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     private void generateDataList () {
 
         mDataArrayList.clear();
+
         for (Map.Entry<Section, ArrayList<SubSection>> entry : mSectionDataMap.entrySet()) {
             Section key;
             mDataArrayList.add((key = entry.getKey()));
+
+//            if (sectionSelect != null && !key.getName().equalsIgnoreCase(sectionSelect.getName())) {
+//                key.isExpanded = false;
+//            }
+
             if (key.isExpanded) {
                 ArrayList<SubSection> subSectionList = entry.getValue();
                 for (SubSection subSection : subSectionList) {
@@ -102,7 +110,12 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     public void onSectionStateChanged(Section section, boolean isOpen) {
         if (!mRecyclerView.isComputingLayout()) {
             section.isExpanded = isOpen;
+
+//            sectionSelect = section;
+
             notifyDataSetChanged();
+
+//            mRecyclerView.scrollToPosition(0);
         }
     }
 }
