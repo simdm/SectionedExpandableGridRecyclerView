@@ -116,8 +116,6 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 
             notifyDataSetChanged();
 
-//            mRecyclerView.scrollToPosition(30);
-
             int n = 0;
             for (Map.Entry<Section, ArrayList<SubSection>> entry : mSectionDataMap.entrySet()) {
                 Section key = entry.getKey();
